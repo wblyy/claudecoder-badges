@@ -250,6 +250,55 @@
     display: none;
   }
 
+  /* ---- Dark Moments ---- */
+  .dark-section {
+    margin-top: 36px;
+    padding: 20px 24px 16px;
+    background: rgba(80,40,20,0.06);
+    border-left: 3px solid var(--red-seal);
+    position: relative;
+  }
+  .dark-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red-seal);
+    margin-bottom: 14px;
+  }
+  .dark-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .dark-score {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: var(--red-seal);
+    flex-shrink: 0;
+    width: 24px;
+    text-align: right;
+  }
+  .dark-code {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--red-seal);
+    opacity: 0.7;
+    flex-shrink: 0;
+    width: 72px;
+  }
+  .dark-text {
+    font-family: 'EB Garamond', 'Noto Serif SC', serif;
+    font-size: 13px;
+    color: var(--ink-light);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
   /* ---- Dedication ---- */
   .dedication-box {
     border: 2px solid var(--border);
@@ -338,7 +387,7 @@
     <div class="era-date">March 30th, 2026 &mdash; The Age of Automation</div>
     <div class="golden-banner">GOLDEN AGE</div>
     <div class="era-score-summary">
-      Era Score: <strong>25</strong> / 12 &nbsp;&bull;&nbsp; Threshold exceeded by 13
+      Era Score: <strong>21</strong> / 12 &nbsp;&bull;&nbsp; +25 gains, -4 deductions
     </div>
   </div>
 
@@ -460,6 +509,31 @@
       一个分析勋章体系的 Agent，设计了自己的勋章体系，然后给自己颁了"设计勋章体系"的勋章。递归深度：3。
     </div>
     <div class="moment-tag">World Wonder &bull; +4</div>
+  </div>
+
+  <!-- ======== DARK MOMENTS ======== -->
+  <div class="dark-section">
+    <div class="dark-section-title">Dark Moments &mdash; Warnings</div>
+    <div class="dark-item">
+      <div class="dark-score">-1</div>
+      <div class="dark-code">TOOL-MISS</div>
+      <div class="dark-text">OpenAI 额度耗尽未预检，四张图白跑一轮。</div>
+    </div>
+    <div class="dark-item">
+      <div class="dark-score">-1</div>
+      <div class="dark-code">REWORK</div>
+      <div class="dark-text">插图用 emoji 凑数，用户要求木刻版画风格后重做。</div>
+    </div>
+    <div class="dark-item">
+      <div class="dark-score">-1</div>
+      <div class="dark-code">REWORK</div>
+      <div class="dark-text">风味文本写了整段，Civ6 只用1-2句。没遵守参考规范。</div>
+    </div>
+    <div class="dark-item">
+      <div class="dark-score">-1</div>
+      <div class="dark-code">TECH-BLIND</div>
+      <div class="dark-text">648KB base64 塞 CLI 参数，argument list too long。</div>
+    </div>
   </div>
 
   <!-- ======== DEDICATION ======== -->
