@@ -250,13 +250,22 @@
     display: none;
   }
 
-  /* ---- Dark Moments ---- */
+  /* ---- Dark Moments (Civ6 Dark Age palette) ---- */
   .dark-section {
     margin-top: 36px;
     padding: 20px 24px 16px;
-    background: rgba(80,40,20,0.06);
-    border-left: 3px solid var(--red-seal);
+    background: linear-gradient(135deg, rgba(25,20,35,0.92) 0%, rgba(40,30,50,0.88) 100%);
+    border: 1px solid rgba(80,60,100,0.3);
     position: relative;
+    color: #a89cb8;
+  }
+  .dark-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
   }
   .dark-section-title {
     font-family: 'Cinzel', serif;
@@ -264,7 +273,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--red-seal);
+    color: #7a6090;
     margin-bottom: 14px;
   }
   .dark-item {
@@ -272,12 +281,14 @@
     align-items: baseline;
     gap: 10px;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
   }
   .dark-score {
     font-family: 'Cinzel', serif;
     font-weight: 900;
     font-size: 14px;
-    color: var(--red-seal);
+    color: #c47070;
     flex-shrink: 0;
     width: 24px;
     text-align: right;
@@ -286,15 +297,14 @@
     font-family: 'Cinzel', serif;
     font-size: 9px;
     letter-spacing: 1.5px;
-    color: var(--red-seal);
-    opacity: 0.7;
+    color: #7a6090;
     flex-shrink: 0;
     width: 72px;
   }
   .dark-text {
     font-family: 'EB Garamond', 'Noto Serif SC', serif;
     font-size: 13px;
-    color: var(--ink-light);
+    color: #a89cb8;
     font-style: italic;
     line-height: 1.5;
   }
