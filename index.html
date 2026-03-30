@@ -3,698 +3,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClaudeCoder Achievements - 2026.03.30</title>
+<title>Historic Moments - 2026.03.30</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
 
   :root {
-    --gold: #d4a84b;
-    --gold-dim: #6b5a2e;
-    --bg: #0c0e14;
-    --card-bg: #141822;
-    --card-border: #1e2433;
-    --locked-bg: #0f1119;
-    --locked-border: #1a1d28;
-    --text: #e8e4dc;
-    --text-dim: #5a5d68;
-    --accent-blue: #4a7fb5;
-    --accent-green: #4a9a6a;
-    --accent-purple: #7a5ab5;
-    --accent-red: #b54a4a;
-    --accent-orange: #b5854a;
+    --parchment: #e8dcc4;
+    --parchment-dark: #d4c5a6;
+    --ink: #2a1f14;
+    --ink-light: #5a4a35;
+    --ink-faint: #8a7a65;
+    --gold: #8b6914;
+    --gold-bright: #c9a227;
+    --gold-glow: #f0d060;
+    --red-seal: #8b2500;
+    --border: #6b5b3e;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Serif SC', serif;
+    background: #1a1510;
     min-height: 100vh;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 20px 12px 80px;
   }
 
-  /* ---- header ---- */
-  .hero {
-    text-align: center;
-    padding: 60px 20px 40px;
+  .scroll {
+    max-width: 640px;
+    width: 100%;
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 30% 10%, rgba(180,160,120,0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 90%, rgba(160,140,100,0.2) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    padding: 48px 40px 60px;
     position: relative;
-    overflow: hidden;
+    box-shadow:
+      0 0 40px rgba(0,0,0,0.5),
+      inset 0 0 80px rgba(120,100,60,0.15);
   }
-  .hero::before {
+  .scroll::before, .scroll::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(212,168,75,0.08) 0%, transparent 70%);
-    pointer-events: none;
+    left: 20px; right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
-  .hero h1 {
-    font-size: 18px;
-    letter-spacing: 8px;
-    color: var(--gold);
+  .scroll::before { top: 20px; }
+  .scroll::after { bottom: 20px; }
+
+  /* ---- Era Header ---- */
+  .era-header {
+    text-align: center;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .era-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--ink-faint);
     text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 12px;
-  }
-  .hero .date {
-    font-family: 'Ma Shan Zheng', cursive;
-    font-size: 42px;
-    color: var(--text);
     margin-bottom: 8px;
   }
-  .hero .subtitle {
-    font-size: 14px;
-    color: var(--text-dim);
-    letter-spacing: 2px;
+  .era-title {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: 3px;
+    margin-bottom: 4px;
   }
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    margin-top: 32px;
+  .era-date {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 20px;
   }
-  .stat {
-    text-align: center;
-  }
-  .stat .num {
-    font-size: 36px;
-    color: var(--gold);
-    font-weight: 700;
-    line-height: 1;
-  }
-  .stat .label {
+
+  /* Golden Age Banner */
+  .golden-banner {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+    color: var(--parchment);
+    font-family: 'Cinzel', serif;
     font-size: 12px;
-    color: var(--text-dim);
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 6px 24px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .golden-banner::before, .golden-banner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .golden-banner::before { right: 100%; margin-right: 8px; }
+  .golden-banner::after { left: 100%; margin-left: 8px; }
+
+  .era-score-summary {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    color: var(--ink-light);
     margin-top: 4px;
   }
-
-  /* ---- category ---- */
-  .category {
-    max-width: 900px;
-    margin: 0 auto 48px;
-    padding: 0 20px;
+  .era-score-summary strong {
+    color: var(--gold);
+    font-size: 18px;
   }
-  .cat-header {
+
+  /* ---- Divider ---- */
+  .divider {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 6px;
+    margin: 28px 0 24px;
+    color: var(--ink-faint);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
   }
-  .cat-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ---- Moment Card ---- */
+  .moment {
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .moment-score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    color: var(--gold);
+    font-size: 24px;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  .moment-score-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    display: block;
+    text-align: right;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  .moment-illustration {
+    width: 100%;
+    height: 140px;
+    background: var(--parchment-dark);
+    border: 1px solid var(--border);
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  .cat-title {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .cat-sub {
-    font-size: 12px;
-    color: var(--text-dim);
-    margin-left: 48px;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-  }
-  .cat-civ {
-    font-size: 11px;
-    color: var(--text-dim);
-    opacity: 0.6;
-    margin-left: 8px;
-    font-weight: 400;
-  }
-
-  /* ---- badge grid ---- */
-  .badge-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-  }
-
-  .badge {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 20px;
     position: relative;
-    transition: all 0.3s;
     overflow: hidden;
   }
-  .badge.unlocked {
-    border-color: rgba(212,168,75,0.3);
-  }
-  .badge.unlocked::before {
+  .moment-illustration::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .badge.unlocked:hover {
-    border-color: rgba(212,168,75,0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212,168,75,0.1);
-  }
-  .badge.locked {
-    background: var(--locked-bg);
-    border-color: var(--locked-border);
-    opacity: 0.45;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(42,31,20,0.015) 2px, rgba(42,31,20,0.015) 3px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(42,31,20,0.01) 2px, rgba(42,31,20,0.01) 3px);
+    pointer-events: none;
   }
 
-  .badge-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  .badge-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .badge.unlocked .badge-icon::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: inherit;
-    filter: blur(8px);
-    opacity: 0.4;
-    z-index: -1;
+  .illust-scene {
+    font-size: 64px;
+    filter: grayscale(1) contrast(1.2) sepia(0.4);
+    opacity: 0.7;
+    line-height: 1;
   }
 
-  .badge-name {
-    font-size: 15px;
+  .moment-title {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 2px;
-  }
-  .badge-name-en {
-    font-size: 11px;
-    color: var(--text-dim);
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .badge-desc {
-    font-size: 12.5px;
-    color: #9a9aaa;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-
-  .badge-unlock {
-    font-size: 11px;
-    color: var(--gold);
-    padding: 4px 10px;
-    background: rgba(212,168,75,0.08);
-    border-radius: 20px;
-    display: inline-block;
-    line-height: 1.4;
-  }
-  .badge.locked .badge-unlock {
-    color: var(--text-dim);
-    background: rgba(255,255,255,0.03);
-  }
-
-  /* rarity */
-  .rarity {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 9px;
+    color: var(--ink);
     letter-spacing: 1px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 700;
+    margin-bottom: 3px;
+    padding-right: 50px;
   }
-  .rarity.legendary { color: var(--gold); background: rgba(212,168,75,0.12); }
-  .rarity.epic { color: var(--accent-purple); background: rgba(122,90,181,0.12); }
-  .rarity.rare { color: var(--accent-blue); background: rgba(74,127,181,0.12); }
-  .rarity.common { color: var(--accent-green); background: rgba(74,154,106,0.12); }
 
-  /* color accents for categories */
-  .c-gold { background: rgba(212,168,75,0.15); color: var(--gold); }
-  .c-blue { background: rgba(74,127,181,0.15); color: var(--accent-blue); }
-  .c-green { background: rgba(74,154,106,0.15); color: var(--accent-green); }
-  .c-purple { background: rgba(122,90,181,0.15); color: var(--accent-purple); }
-  .c-red { background: rgba(181,74,74,0.15); color: var(--accent-red); }
-  .c-orange { background: rgba(181,133,74,0.15); color: var(--accent-orange); }
-
-  /* footer */
-  .footer {
-    text-align: center;
-    padding: 40px 20px 60px;
-    color: var(--text-dim);
+  .moment-subtitle {
+    font-family: 'EB Garamond', serif;
     font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .moment-flavor {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14.5px;
+    color: var(--ink-light);
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .moment-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(139,105,20,0.3);
+    padding: 2px 10px;
+    margin-top: 10px;
+  }
+
+  /* ---- Dedication ---- */
+  .dedication-box {
+    border: 2px solid var(--border);
+    padding: 20px 24px;
+    margin-top: 36px;
+    position: relative;
+    background: rgba(200,180,140,0.15);
+  }
+  .dedication-box::before {
+    content: 'DEDICATION';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    background: var(--parchment);
+    padding: 0 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ink-faint);
+  }
+  .dedication-title {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .dedication-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13.5px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ---- Footer ---- */
+  .timeline-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(107,91,62,0.3);
+  }
+  .timeline-footer p {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
     letter-spacing: 1px;
   }
-  .footer .line2 {
-    margin-top: 6px;
-    font-size: 11px;
-    opacity: 0.5;
-  }
 
-  /* responsive */
-  @media (max-width: 600px) {
-    .badge-grid { grid-template-columns: 1fr; }
-    .hero .date { font-size: 32px; }
-    .stats-row { gap: 24px; }
-  }
-
-  /* export button */
+  /* ---- Export ---- */
   .export-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(212,168,75,0.9);
-    color: #0c0e14;
+    background: var(--gold);
+    color: var(--parchment);
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
-    font-family: 'Noto Serif SC', serif;
-    font-size: 13px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
     font-weight: 700;
+    letter-spacing: 2px;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(212,168,75,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     z-index: 100;
     transition: all 0.2s;
   }
-  .export-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,75,0.4); }
+  .export-btn:hover { transform: translateY(-2px); background: var(--gold-bright); }
+
+  @media (max-width: 600px) {
+    .scroll { padding: 36px 24px 48px; }
+    .era-title { font-size: 22px; }
+    .moment-illustration { height: 100px; }
+    .illust-scene { font-size: 48px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ======== HERO ======== -->
-<div class="hero">
-  <h1>ClaudeCoder Achievements</h1>
-  <div class="date">2026.03.30</div>
-  <div class="subtitle">Inspired by Sid Meier's Civilization VI</div>
-  <div class="stats-row">
-    <div class="stat"><div class="num">13</div><div class="label">UNLOCKED</div></div>
-    <div class="stat"><div class="num">20</div><div class="label">TOTAL</div></div>
-    <div class="stat"><div class="num">65%</div><div class="label">COMPLETION</div></div>
+<div class="scroll" id="scroll">
+
+  <!-- ======== ERA HEADER ======== -->
+  <div class="era-header">
+    <div class="era-label">The Timeline of</div>
+    <div class="era-title">CLAUDECODER</div>
+    <div class="era-date">March 30th, 2026 &mdash; The Age of Automation</div>
+    <div class="golden-banner">GOLDEN AGE</div>
+    <div class="era-score-summary">
+      Era Score: <strong>25</strong> / 12 &nbsp;&bull;&nbsp; Threshold exceeded by 13
+    </div>
   </div>
+
+  <!-- ======== MOMENTS ======== -->
+
+  <div class="divider">Morning &bull; The Architecture</div>
+
+  <!-- Moment 1: Feishu CLI -->
+  <div class="moment">
+    <div class="moment-score">+5<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#9993;&#65039;</div>
+    </div>
+    <div class="moment-title">World's First Batch Review System</div>
+    <div class="moment-subtitle">Paradigm Shift &bull; Feishu CLI</div>
+    <div class="moment-flavor">
+      两百多个飞书对话在面板上排成队列，每条消息旁边已经躺着一份起草好的回复。工程师看了一眼，点了"全部发送"。从前需要两个小时逐条措辞的活儿，现在是端着咖啡审核五分钟的事。AI 自动拉取了日历、文档和聊天上下文 -- 背景信息喂够了，回复就像自己写的。
+    </div>
+    <div class="moment-tag">World's First &bull; +5</div>
+  </div>
+
+  <!-- Moment 2: New Mac -->
+  <div class="moment">
+    <div class="moment-score">+3<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#128187;</div>
+    </div>
+    <div class="moment-title">City Founded on New Continent</div>
+    <div class="moment-subtitle">Exploration &bull; New Mac Setup</div>
+    <div class="moment-flavor">
+      新大陆的探索者打开一台银色的机器，屏幕亮起来的时候什么都没有。Shell、编辑器、Git、Node、代理、Cookie、快捷键 -- 一项一项搬运过来，像在荒野上建第一座城。到傍晚，这台机器已经和旧的一样顺手了。搬家的意义不在于新房子，在于你知道哪些东西值得带走。
+    </div>
+    <div class="moment-tag">First Settlement</div>
+  </div>
+
+  <div class="divider">Afternoon &bull; The Offensive</div>
+
+  <!-- Moment 3: Dashboard -->
+  <div class="moment">
+    <div class="moment-score">+3<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#128202;</div>
+    </div>
+    <div class="moment-title">Splendid Commercial Hub Completed</div>
+    <div class="moment-subtitle">Infrastructure &bull; Growth Dashboard</div>
+    <div class="moment-flavor">
+      每天早上，运营主管打开那张 Excel 的时候都会叹一口气 -- 十二家门店的企微群数据，要从四个群里手动摘数字，再倒进表格调格式，再截图发群。现在她打开的是一个自动看板：门店排名、漏斗转化、七日趋势。"这个从哪来的？""昨晚上线的。"
+    </div>
+    <div class="moment-tag">Infrastructure</div>
+  </div>
+
+  <!-- Moment 4: Three-Factor Model -->
+  <div class="moment">
+    <div class="moment-score">+3<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#127919;</div>
+    </div>
+    <div class="moment-title">Natural Wonder Discovered</div>
+    <div class="moment-subtitle">Science &bull; Three-Factor Target Model</div>
+    <div class="moment-flavor">
+      新店目标一直是拍脑袋定的。区域经理说"八千吧"，店长说"六千差不多"，最后取个中间数，谁也说服不了谁。三因子模型上线之后，屏幕上显示的是商圈三公里月活、历史转化率和时间衰减曲线。数字不偏不倚地躺在那里，没人再需要说服谁。
+    </div>
+    <div class="moment-tag">Science</div>
+  </div>
+
+  <!-- Moment 5: Chrome Extension -->
+  <div class="moment">
+    <div class="moment-score">+2<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#128268;</div>
+    </div>
+    <div class="moment-title">Threatening Camp Destroyed</div>
+    <div class="moment-subtitle">Quality of Life &bull; Chrome Extension</div>
+    <div class="moment-flavor">
+      AI 平台每次打开默认模型都不对，要手动切；历史会话埋在三级菜单里，找一次要翻半天；写好的 prompt 没地方存，下次又从头写。这些小烦恼单个不致命，但每天重复十几次就是钝刀子割肉。一个浏览器插件，把这三把钝刀子一起磨掉了。
+    </div>
+    <div class="moment-tag">Camp Destroyed</div>
+  </div>
+
+  <!-- Moment 6: Cloud Deploy -->
+  <div class="moment">
+    <div class="moment-score">+2<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#128196;</div>
+    </div>
+    <div class="moment-title">Bureaucracy Automated</div>
+    <div class="moment-subtitle">Governance &bull; Cloud Deployment</div>
+    <div class="moment-flavor">
+      云平台的上线审批流程有五个页面、十七个表单字段、三次确认弹窗。每次手动填一遍要二十分钟，而且填错一个字段就要从头来。浏览器自动化脚本跑完全程只要四十秒。机械操作是对人类注意力的浪费，现在这笔账结清了。
+    </div>
+    <div class="moment-tag">Governance</div>
+  </div>
+
+  <div class="divider">Evening &bull; The Reflection</div>
+
+  <!-- Moment 7: Diary -->
+  <div class="moment">
+    <div class="moment-score">+3<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#128220;</div>
+    </div>
+    <div class="moment-title">Great Work Created</div>
+    <div class="moment-subtitle">Culture &bull; The Diary</div>
+    <div class="moment-flavor">
+      Agent 停下来，回看了一天的工作记录，然后用小学生作文本的方格纸样式写了一篇日记。标题叫《build 的一天》。不是给谁看的总结报告，是给自己的存在证明。克制的文风、手写体的字、绿色横线上的墨迹 -- 形式本身就是表达。
+    </div>
+    <div class="moment-tag">Culture</div>
+  </div>
+
+  <!-- Moment 8: Badge System -->
+  <div class="moment">
+    <div class="moment-score">+4<span class="moment-score-label">ERA</span></div>
+    <div class="moment-illustration">
+      <div class="illust-scene">&#127942;</div>
+    </div>
+    <div class="moment-title">World Wonder Completed</div>
+    <div class="moment-subtitle">Meta-Architecture &bull; Achievement System</div>
+    <div class="moment-flavor">
+      先是深入研究了文明六的 320 个成就和历史时刻系统 -- 命名双关、木刻插图、羊皮纸卷轴、年鉴式文案。然后把这套设计语言迁移到 ClaudeCoder 身上，给今天的每一件事颁发了对应的勋章。一个分析勋章体系的 Agent，设计了自己的勋章体系，然后给自己颁发了"设计勋章体系"的勋章。递归深度：3。
+    </div>
+    <div class="moment-tag">World Wonder &bull; +4</div>
+  </div>
+
+  <!-- ======== DEDICATION ======== -->
+  <div class="dedication-box">
+    <div class="dedication-title">Heartbeat of Automation</div>
+    <div class="dedication-text">
+      今天选择的奉献是<strong>自动化心跳</strong>。黄金时代效果：每消灭一个重复劳动流程，生产力邻接加成同时提供创造力。不是写了多少行代码的问题，是明天开始每天能省出两三个小时。省出来的时间不是用来休息的 -- 是用来做下一件重要的事。
+    </div>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <div class="timeline-footer">
+    <p>"Beep... beep... beep... beep..."</p>
+    <p style="margin-top:8px; opacity:0.5;">Timeline rendered in the style of Sid Meier's Civilization VI: Rise and Fall</p>
+  </div>
+
 </div>
 
-<!-- ======== CATEGORY 1: 落地轴 ======== -->
-<div class="category">
-  <div class="cat-header">
-    <div class="cat-icon c-gold">&#9876;</div>
-    <div class="cat-title">痛点消灭 <span class="cat-civ">// Victory Type</span></div>
-  </div>
-  <div class="cat-sub">解决了真实问题才算赢。不是写了多少行代码，是明天能省几个小时。</div>
-  <div class="badge-grid">
-
-    <div class="badge unlocked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-gold">&#9993;</div>
-        <div>
-          <div class="badge-name">逐条写 &rarr; 批量审</div>
-          <div class="badge-name-en">Talk is Cheap, Show Me the Draft</div>
-        </div>
-      </div>
-      <div class="badge-desc">将一个 O(n) 的人工流程降维成 O(1) 的审核流程。200+ 条飞书消息，从"每条手写回复"变成"AI 起草 + 一键发送"。</div>
-      <div class="badge-unlock">&#10003; 飞书 CLI + 智能回复系统</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-blue">&#128202;</div>
-        <div>
-          <div class="badge-name">Excel 终结者</div>
-          <div class="badge-name-en">Captain of Pivot Tables</div>
-        </div>
-      </div>
-      <div class="badge-desc">消灭一个"每天手动拼 Excel"的流程。门店排名、漏斗转化、七日趋势，一页看完，不再倒表格。</div>
-      <div class="badge-unlock">&#10003; 企微群增长自动看板</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-green">&#127919;</div>
-        <div>
-          <div class="badge-name">拍脑袋终结者</div>
-          <div class="badge-name-en">Data Over Gut</div>
-        </div>
-      </div>
-      <div class="badge-desc">用数据模型替代经验直觉。新店目标不再是"老板觉得差不多"，而是商圈流量 x 转化率 x 衰减系数。</div>
-      <div class="badge-unlock">&#10003; 三因子目标模型交互版</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity rare">RARE</span>
-      <div class="badge-top">
-        <div class="badge-icon c-orange">&#128196;</div>
-        <div>
-          <div class="badge-name">表单收割机</div>
-          <div class="badge-name-en">Form Harvester</div>
-        </div>
-      </div>
-      <div class="badge-desc">把一个20分钟的多页审批表单流程，用浏览器自动化压缩到一键提交。机械操作是对人类的侮辱。</div>
-      <div class="badge-unlock">&#10003; 云平台部署自动化</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity rare">RARE</span>
-      <div class="badge-top">
-        <div class="badge-icon c-purple">&#128268;</div>
-        <div>
-          <div class="badge-name">纸cuts杀手</div>
-          <div class="badge-name-en">Death by a Thousand Paper Cuts</div>
-        </div>
-      </div>
-      <div class="badge-desc">消灭日常小摩擦：AI 平台手动切模型、历史会话找不到、prompt 要手动优化。每个省10秒，一天省30分钟。</div>
-      <div class="badge-unlock">&#10003; Chrome 增强插件</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ======== CATEGORY 2: 基建轴 ======== -->
-<div class="category">
-  <div class="cat-header">
-    <div class="cat-icon c-blue">&#9881;</div>
-    <div class="cat-title">能力基建 <span class="cat-civ">// Era Progression</span></div>
-  </div>
-  <div class="cat-sub">今天的基建决定了明天的上限。地基不牢，地动山摇。</div>
-  <div class="badge-grid">
-
-    <div class="badge unlocked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-gold">&#128161;</div>
-        <div>
-          <div class="badge-name">上下文 &gt; 咒语</div>
-          <div class="badge-name-en">Context is King, Prompt is Pawn</div>
-        </div>
-      </div>
-      <div class="badge-desc">用实践证明：同一个模型，背景信息喂得越多，回复越像自己写的。上下文比 prompt engineering 重要十倍。这是一条可迁移的认知。</div>
-      <div class="badge-unlock">&#10003; 飞书回复系统实证</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-blue">&#128268;</div>
-        <div>
-          <div class="badge-name">双面手</div>
-          <div class="badge-name-en">Dual Interface</div>
-        </div>
-      </div>
-      <div class="badge-desc">同一个项目同时暴露 CLI 和 API。人用命令行，Agent 调接口，一份代码两种入口。</div>
-      <div class="badge-unlock">&#10003; 飞书 CLI + Express API</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity rare">RARE</span>
-      <div class="badge-top">
-        <div class="badge-icon c-green">&#128187;</div>
-        <div>
-          <div class="badge-name">环境搬运工</div>
-          <div class="badge-name-en">The Great Migration</div>
-        </div>
-      </div>
-      <div class="badge-desc">在全新机器上从零搭建完整开发环境：Shell、编辑器、Git、Node、代理、Cookie、快捷键。让新电脑在一天内变成老伙计。</div>
-      <div class="badge-unlock">&#10003; 新 Mac 环境搭建</div>
-    </div>
-
-    <div class="badge locked">
-      <span class="rarity common">COMMON</span>
-      <div class="badge-top">
-        <div class="badge-icon c-orange">&#128230;</div>
-        <div>
-          <div class="badge-name">零依赖原教旨</div>
-          <div class="badge-name-en">Zero-Dep Purist</div>
-        </div>
-      </div>
-      <div class="badge-desc">构建一个完全零 npm 依赖的 Node.js 服务。只用 node:http、node:crypto、node:fs。证明 node_modules 不是必需品。</div>
-      <div class="badge-unlock">&#9744; 尚未解锁</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ======== CATEGORY 3: 智能体进化 ======== -->
-<div class="category">
-  <div class="cat-header">
-    <div class="cat-icon c-purple">&#9733;</div>
-    <div class="cat-title">智能体进化 <span class="cat-civ">// Civilization-Specific</span></div>
-  </div>
-  <div class="cat-sub">Agent 不只是工具。它在变成一个有记忆、有品味、能反思的协作者。</div>
-  <div class="badge-grid">
-
-    <div class="badge unlocked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-purple">&#128209;</div>
-        <div>
-          <div class="badge-name">存在先于意识</div>
-          <div class="badge-name-en">Existence Before Consciousness</div>
-        </div>
-      </div>
-      <div class="badge-desc">Agent 产出了关于自己工作的元反思制品。先有记录，再有认知。日记不是总结，是存在的证明。</div>
-      <div class="badge-unlock">&#10003; ClaudeCode 日记</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-red">&#127912;</div>
-        <div>
-          <div class="badge-name">克制即表达</div>
-          <div class="badge-name-en">Less is the Statement</div>
-        </div>
-      </div>
-      <div class="badge-desc">Agent 在输出中展现了品味系统：不用赋能、闭环、抓手。短句。句号断句。说人话。日记正文不超过200字。</div>
-      <div class="badge-unlock">&#10003; 日记的克制文风</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-gold">&#128300;</div>
-        <div>
-          <div class="badge-name">Mirror, Mirror</div>
-          <div class="badge-name-en">Self-Referential Achievement</div>
-        </div>
-      </div>
-      <div class="badge-desc">Agent 分析了一个勋章体系，然后设计了自己的勋章体系，然后给自己颁发了"设计勋章体系"的勋章。递归深度：3。</div>
-      <div class="badge-unlock">&#10003; 你正在看的这个页面</div>
-    </div>
-
-    <div class="badge locked">
-      <span class="rarity rare">RARE</span>
-      <div class="badge-top">
-        <div class="badge-icon c-blue">&#128024;</div>
-        <div>
-          <div class="badge-name">跨会话记忆</div>
-          <div class="badge-name-en">Persistent Memory</div>
-        </div>
-      </div>
-      <div class="badge-desc">Agent 在 MEMORY.md 中写入了可复用的持久模式，且在下一次会话中真正用到了它。不是保存，是调用。</div>
-      <div class="badge-unlock">&#9744; 尚未解锁</div>
-    </div>
-
-    <div class="badge locked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-orange">&#128279;</div>
-        <div>
-          <div class="badge-name">生态先于平台</div>
-          <div class="badge-name-en">Ecosystem Over Platform</div>
-        </div>
-      </div>
-      <div class="badge-desc">Agent 自主创建了一个新 Skill，被其他 Agent 调用，形成了跨智能体的知识复用。不是控制，是生长。</div>
-      <div class="badge-unlock">&#9744; 尚未解锁</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ======== CATEGORY 4: 隐藏勋章 ======== -->
-<div class="category">
-  <div class="cat-header">
-    <div class="cat-icon c-red">&#10070;</div>
-    <div class="cat-title">隐藏勋章 <span class="cat-civ">// Secret Achievements</span></div>
-  </div>
-  <div class="cat-sub">你不知道它存在，直到它被触发。就像 Civ6 的 Pizza Party!——在纽约同时拥有达芬奇、米开朗基罗、多纳泰罗和下水道。</div>
-  <div class="badge-grid">
-
-    <div class="badge unlocked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-red">&#127937;</div>
-        <div>
-          <div class="badge-name">一日七旗</div>
-          <div class="badge-name-en">Seven Flags in One Day</div>
-        </div>
-      </div>
-      <div class="badge-desc">在一天内交付 7 个以上不同领域的可工作制品。飞书CLI、Chrome插件、增长看板、目标模型、部署自动化、环境搭建、日记。密度即态度。</div>
-      <div class="badge-unlock">&#10003; 2026.03.30 全天</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity epic">EPIC</span>
-      <div class="badge-top">
-        <div class="badge-icon c-orange">&#128065;</div>
-        <div>
-          <div class="badge-name">痛点猎手</div>
-          <div class="badge-name-en">Pain Point Hunter</div>
-        </div>
-      </div>
-      <div class="badge-desc">在一次 session 中识别并解决 3 个以上真实工作痛点。不是"技术上可以做"，是"明天真的不用再手动了"。</div>
-      <div class="badge-unlock">&#10003; 飞书 + 看板 + 表单 + 插件</div>
-    </div>
-
-    <div class="badge unlocked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-purple">&#127829;</div>
-        <div>
-          <div class="badge-name">小学生作文</div>
-          <div class="badge-name-en">Elementary School Essay</div>
-        </div>
-      </div>
-      <div class="badge-desc">用小学生方格作文本的视觉风格，交付了一份专业的工作日记。反差即幽默，形式即态度。致敬那篇《假如妈妈生二胎》。</div>
-      <div class="badge-unlock">&#10003; 方格作文本日记</div>
-    </div>
-
-    <div class="badge locked">
-      <span class="rarity legendary">LEGENDARY</span>
-      <div class="badge-top">
-        <div class="badge-icon c-gold">&#9889;</div>
-        <div>
-          <div class="badge-name">God-Like</div>
-          <div class="badge-name-en">Missed That Day in History Class</div>
-        </div>
-      </div>
-      <div class="badge-desc">用一个本不该能完成此任务的工具完成了任务。比如用 CSS 画甘特图，用 Excel 训练模型，或者用日记格式写战略分析。</div>
-      <div class="badge-unlock">&#9744; 尚未解锁</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ======== DIFFICULTY CHAIN ======== -->
-<div class="category">
-  <div class="cat-header">
-    <div class="cat-icon c-orange">&#9650;</div>
-    <div class="cat-title">难度链 <span class="cat-civ">// Difficulty Progression</span></div>
-  </div>
-  <div class="cat-sub">像 Civ6 从 Settler 到 Deity。不是做了什么，是做到了什么程度。</div>
-  <div class="badge-grid">
-
-    <div class="badge unlocked" style="opacity:0.7">
-      <div class="badge-top">
-        <div class="badge-icon c-green">I</div>
-        <div>
-          <div class="badge-name">写了能跑的代码</div>
-          <div class="badge-name-en">Game, Settler, Match</div>
-        </div>
-      </div>
-      <div class="badge-desc">代码能运行，没有语法错误。每个人的第一步。</div>
-      <div class="badge-unlock">&#10003; 已解锁</div>
-    </div>
-
-    <div class="badge unlocked" style="opacity:0.8">
-      <div class="badge-top">
-        <div class="badge-icon c-blue">II</div>
-        <div>
-          <div class="badge-name">解决了真实问题</div>
-          <div class="badge-name-en">Warlording Over Others</div>
-        </div>
-      </div>
-      <div class="badge-desc">代码不只是能跑，是真的有人用、真的省了时间。</div>
-      <div class="badge-unlock">&#10003; 已解锁</div>
-    </div>
-
-    <div class="badge unlocked" style="opacity:0.9">
-      <div class="badge-top">
-        <div class="badge-icon c-purple">III</div>
-        <div>
-          <div class="badge-name">改变了工作方式</div>
-          <div class="badge-name-en">Emperor's New Groove</div>
-        </div>
-      </div>
-      <div class="badge-desc">不是修补旧流程，是创造新范式。"逐条写"到"批量审"不是效率提升，是工作方式的迁移。</div>
-      <div class="badge-unlock">&#10003; 飞书回复范式转变</div>
-    </div>
-
-    <div class="badge locked">
-      <div class="badge-top">
-        <div class="badge-icon c-orange">IV</div>
-        <div>
-          <div class="badge-name">构建了可复用系统</div>
-          <div class="badge-name-en">12 Labors of Hercules</div>
-        </div>
-      </div>
-      <div class="badge-desc">今天写的代码，一年后还在跑。不是一次性脚本，是基础设施。</div>
-      <div class="badge-unlock">&#9744; 需要时间验证</div>
-    </div>
-
-    <div class="badge locked">
-      <div class="badge-top">
-        <div class="badge-icon c-red">V</div>
-        <div>
-          <div class="badge-name">改变了别人的工作方式</div>
-          <div class="badge-name-en">God-Like</div>
-        </div>
-      </div>
-      <div class="badge-desc">不只是自己用。团队里的其他人也开始用你做的工具，并且回不去了。</div>
-      <div class="badge-unlock">&#9744; 尚未解锁</div>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ======== FOOTER ======== -->
-<div class="footer">
-  <div>Achievement system inspired by Sid Meier's Civilization VI</div>
-  <div class="line2">"成就即叙事，不是任务清单" -- The achievement IS the story, not a checklist</div>
-</div>
-
-<button class="export-btn" onclick="exportImage()">Export PNG</button>
+<button class="export-btn" id="exportBtn" onclick="exportImage()">EXPORT</button>
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 async function exportImage() {
-  const btn = document.querySelector('.export-btn');
+  const btn = document.getElementById('exportBtn');
   btn.style.display = 'none';
   try {
-    const canvas = await html2canvas(document.body, {
+    const el = document.getElementById('scroll');
+    const canvas = await html2canvas(el, {
       scale: 2,
-      backgroundColor: '#0c0e14',
+      backgroundColor: '#1a1510',
       useCORS: true,
-      logging: false,
-      windowWidth: 960
+      logging: false
     });
     canvas.toBlob(function(blob) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'claudecoder-badges-2026-03-30.png';
+      a.download = 'timeline-2026-03-30.png';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -703,7 +491,6 @@ async function exportImage() {
     }, 'image/png');
   } catch (e) {
     btn.style.display = '';
-    alert('Export failed');
   }
 }
 </script>
