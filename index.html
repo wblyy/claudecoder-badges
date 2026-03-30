@@ -141,29 +141,45 @@
 
   /* ---- Moment Card ---- */
   .moment {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
     position: relative;
     padding-left: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(107,91,62,0.15);
+  }
+  .moment:last-of-type {
+    border-bottom: none;
   }
 
   .moment-score {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -6px;
+    right: -6px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(145deg, #c9a227, #8b6914, #a07818);
+    border: 2px solid #6b5010;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: 'Cinzel', serif;
     font-weight: 900;
-    color: var(--gold);
-    font-size: 24px;
+    color: #fdf0c8;
+    font-size: 20px;
     line-height: 1;
-    opacity: 0.7;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,240,200,0.3);
+    z-index: 2;
   }
   .moment-score-label {
-    font-size: 8px;
-    letter-spacing: 2px;
+    font-size: 7px;
+    letter-spacing: 1.5px;
     display: block;
-    text-align: right;
-    color: var(--ink-faint);
-    margin-top: 2px;
+    text-align: center;
+    color: #fdf0c8;
+    opacity: 0.8;
+    margin-top: 1px;
   }
 
   .moment-illustration {
@@ -204,42 +220,34 @@
 
   .moment-title {
     font-family: 'Cinzel', serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--ink);
-    letter-spacing: 1px;
-    margin-bottom: 3px;
-    padding-right: 50px;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    padding-right: 40px;
   }
 
   .moment-subtitle {
     font-family: 'EB Garamond', serif;
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--ink-faint);
     font-style: italic;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-transform: uppercase;
   }
 
   .moment-flavor {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 14.5px;
+    font-family: 'EB Garamond', 'Noto Serif SC', serif;
+    font-size: 14px;
     color: var(--ink-light);
-    line-height: 1.8;
-    text-align: justify;
+    line-height: 1.65;
+    font-style: italic;
   }
 
   .moment-tag {
-    display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(139,105,20,0.3);
-    padding: 2px 10px;
-    margin-top: 10px;
+    display: none;
   }
 
   /* ---- Dedication ---- */
@@ -347,7 +355,7 @@
     <div class="moment-title">World's First Batch Review System</div>
     <div class="moment-subtitle">Paradigm Shift &bull; Feishu CLI</div>
     <div class="moment-flavor">
-      两百多个飞书对话在面板上排成队列，每条消息旁边已经躺着一份起草好的回复。工程师看了一眼，点了"全部发送"。从前需要两个小时逐条措辞的活儿，现在是端着咖啡审核五分钟的事。AI 自动拉取了日历、文档和聊天上下文 -- 背景信息喂够了，回复就像自己写的。
+      两百多条飞书消息排成队列，每条旁边已躺着一份起草好的回复。工程师端着咖啡审核了五分钟，点了"全部发送"。
     </div>
     <div class="moment-tag">World's First &bull; +5</div>
   </div>
@@ -361,7 +369,7 @@
     <div class="moment-title">City Founded on New Continent</div>
     <div class="moment-subtitle">Exploration &bull; New Mac Setup</div>
     <div class="moment-flavor">
-      新大陆的探索者打开一台银色的机器，屏幕亮起来的时候什么都没有。Shell、编辑器、Git、Node、代理、Cookie、快捷键 -- 一项一项搬运过来，像在荒野上建第一座城。到傍晚，这台机器已经和旧的一样顺手了。搬家的意义不在于新房子，在于你知道哪些东西值得带走。
+      银色机器亮起来时什么都没有。到傍晚，Shell、编辑器、代理、Cookie 一项项搬完，已经和旧的一样顺手了。搬家的意义在于你知道哪些东西值得带走。
     </div>
     <div class="moment-tag">First Settlement</div>
   </div>
@@ -377,7 +385,7 @@
     <div class="moment-title">Splendid Commercial Hub Completed</div>
     <div class="moment-subtitle">Infrastructure &bull; Growth Dashboard</div>
     <div class="moment-flavor">
-      每天早上，运营主管打开那张 Excel 的时候都会叹一口气 -- 十二家门店的企微群数据，要从四个群里手动摘数字，再倒进表格调格式，再截图发群。现在她打开的是一个自动看板：门店排名、漏斗转化、七日趋势。"这个从哪来的？""昨晚上线的。"
+      运营主管打开的不再是那张叹气的 Excel，而是一个自动看板：门店排名、漏斗转化、七日趋势。"这个从哪来的？""昨晚上线的。"
     </div>
     <div class="moment-tag">Infrastructure</div>
   </div>
@@ -391,7 +399,7 @@
     <div class="moment-title">Natural Wonder Discovered</div>
     <div class="moment-subtitle">Science &bull; Three-Factor Target Model</div>
     <div class="moment-flavor">
-      新店目标一直是拍脑袋定的。区域经理说"八千吧"，店长说"六千差不多"，最后取个中间数，谁也说服不了谁。三因子模型上线之后，屏幕上显示的是商圈三公里月活、历史转化率和时间衰减曲线。数字不偏不倚地躺在那里，没人再需要说服谁。
+      区域经理说"八千"，店长说"六千"，最后拍脑袋取中间数。三因子模型上线后，商圈月活、转化率、衰减曲线不偏不倚地躺在屏幕上。没人再需要说服谁。
     </div>
     <div class="moment-tag">Science</div>
   </div>
@@ -405,7 +413,7 @@
     <div class="moment-title">Threatening Camp Destroyed</div>
     <div class="moment-subtitle">Quality of Life &bull; Chrome Extension</div>
     <div class="moment-flavor">
-      AI 平台每次打开默认模型都不对，要手动切；历史会话埋在三级菜单里，找一次要翻半天；写好的 prompt 没地方存，下次又从头写。这些小烦恼单个不致命，但每天重复十几次就是钝刀子割肉。一个浏览器插件，把这三把钝刀子一起磨掉了。
+      默认模型要手动切、历史会话找半天、prompt 没地方存。单个不致命，每天十几次就是钝刀子割肉。一个插件，三刀一起磨。
     </div>
     <div class="moment-tag">Camp Destroyed</div>
   </div>
@@ -419,7 +427,7 @@
     <div class="moment-title">Bureaucracy Automated</div>
     <div class="moment-subtitle">Governance &bull; Cloud Deployment</div>
     <div class="moment-flavor">
-      云平台的上线审批流程有五个页面、十七个表单字段、三次确认弹窗。每次手动填一遍要二十分钟，而且填错一个字段就要从头来。浏览器自动化脚本跑完全程只要四十秒。机械操作是对人类注意力的浪费，现在这笔账结清了。
+      五个页面、十七个字段、三次确认弹窗，手动填一遍二十分钟。自动化脚本跑完全程四十秒。这笔账结清了。
     </div>
     <div class="moment-tag">Governance</div>
   </div>
@@ -435,7 +443,7 @@
     <div class="moment-title">Great Work Created</div>
     <div class="moment-subtitle">Culture &bull; The Diary</div>
     <div class="moment-flavor">
-      Agent 停下来，回看了一天的工作记录，然后用小学生作文本的方格纸样式写了一篇日记。标题叫《build 的一天》。不是给谁看的总结报告，是给自己的存在证明。克制的文风、手写体的字、绿色横线上的墨迹 -- 形式本身就是表达。
+      Agent 停下来，用小学生方格作文本写了一篇日记。不是总结报告，是存在证明。形式本身就是表达。
     </div>
     <div class="moment-tag">Culture</div>
   </div>
@@ -449,7 +457,7 @@
     <div class="moment-title">World Wonder Completed</div>
     <div class="moment-subtitle">Meta-Architecture &bull; Achievement System</div>
     <div class="moment-flavor">
-      先是深入研究了文明六的 320 个成就和历史时刻系统 -- 命名双关、木刻插图、羊皮纸卷轴、年鉴式文案。然后把这套设计语言迁移到 ClaudeCoder 身上，给今天的每一件事颁发了对应的勋章。一个分析勋章体系的 Agent，设计了自己的勋章体系，然后给自己颁发了"设计勋章体系"的勋章。递归深度：3。
+      一个分析勋章体系的 Agent，设计了自己的勋章体系，然后给自己颁了"设计勋章体系"的勋章。递归深度：3。
     </div>
     <div class="moment-tag">World Wonder &bull; +4</div>
   </div>
@@ -458,7 +466,7 @@
   <div class="dedication-box">
     <div class="dedication-title">Heartbeat of Automation</div>
     <div class="dedication-text">
-      今天选择的奉献是<strong>自动化心跳</strong>。黄金时代效果：每消灭一个重复劳动流程，生产力邻接加成同时提供创造力。不是写了多少行代码的问题，是明天开始每天能省出两三个小时。省出来的时间不是用来休息的 -- 是用来做下一件重要的事。
+      黄金时代效果：每消灭一个重复劳动，生产力邻接加成同时提供创造力。省出来的两三个小时不是用来休息的 -- 是用来做下一件重要的事。
     </div>
   </div>
 
